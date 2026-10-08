@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background: #010845;
+    color: #eeeeee;
+    font-family: "Inter", sans-serif;
+    overflow: hidden;
+}
+
+
+/* EKRANLAR */
+
+.screen {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.035),
+            transparent 45%
+        ),
+        #1f3384;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.03);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        visibility 1s;
+}
+
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+
+/* İÇERİK */
+
+.content {
+    width: min(90%, 700px);
+    text-align: center;
+}
+
+
+.small-text,
+.section-number,
+.final-label {
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+
+h1 {
+    font-size: clamp(38px, 7vw, 75px);
+    font-weight: 400;
+    letter-spacing: -3px;
+}
+
+
+h2 {
+    font-size: clamp(30px, 6vw, 60px);
+    font-weight: 400;
+    letter-spacing: -2px;
+}
+
+
+.sub-text {
+    margin-top: 25px;
+    min-height: 25px;
+    color: #888;
+    font-size: 15px;
+}
+
+
+button {
+    margin-top: 45px;
+
+    background: transparent;
+    color: #ddd;
+
+    border: 1px solid #333;
+
+    padding: 13px 25px;
+
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+button:hover {
+    border-color: #aaa;
+    background: #fff;
+    color: #000;
+}
+
+
+/* NEDEN SEN */
+
+.sentence-container {
+    margin-top: 45px;
+}
+
+
+.sentence {
+    opacity: 0;
+    transform: translateY(15px);
+
+    margin: 18px 0;
+
+    color: #777;
+
+    font-size: 17px;
+
+    border-radius: 5px;
+
+    transition: 1s ease;
+}
+
+
+.sentence.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.sentence.highlight {
+    color: #eee;
+    font-size: 23px;
+}
+
+
+/* DOSYA */
+
+.file-box {
+    width: min(90%, 650px);
+
+    padding: 30px;
+
+    border: 1px solid #222;
+
+    background: rgba(255,255,255,0.015);
+
+    box-shadow:
+        0 0 60px rgba(255,255,255,0.02);
+
+    font-family: "Space Mono", monospace;
+}
+
+
+.file-header {
+    display: flex;
+    justify-content: space-between;
+
+    color: #777;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #222;
+}
+
+
+.file-info {
+    margin-top: 30px;
+
+    color: #aaa;
+
+    font-size: 12px;
+
+    line-height: 2;
+}
+
+
+.line {
+    height: 1px;
+    background: #222;
+
+    margin: 30px 0;
+}
+
+
+.analysis {
+    color: #777;
+    font-size: 11px;
+
+    animation: blink 1s infinite;
+}
+
+
+@keyframes blink {
+
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+}
+
+
+.findings {
+    margin-top: 25px;
+}
+
+
+.findings p {
+    opacity: 0;
+
+    color: #bbb;
+
+    font-size: 13px;
+
+    line-height: 2.5;
+
+    transform: translateX(-10px);
+
+    transition: 0.6s ease;
+}
+
+
+.findings p.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+.fileBtn {
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 1s ease;
+}
+
+
+.fileBtn.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* ERROR */
+
+.error-code {
+    font-family: "Space Mono", monospace;
+
+    color: #555;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+}
+
+
+.error-text {
+    margin-top: 25px;
+
+    color: #777;
+
+    opacity: 0;
+}
+
+
+.error-text.show {
+    animation: fadeIn 1s forwards;
+}
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* FINAL */
+
+.final-text {
+    margin-top: 40px;
+}
+
+
+.final-text p {
+    opacity: 0;
+
+    margin: 25px 0;
+
+    font-size: 19px;
+
+    color: #aaa;
+
+    transform: translateY(15px);
+}
+
+
+.final-text p.show {
+    animation: finalAppear 1.3s forwards;
+}
+
+
+@keyframes finalAppear {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+.final-text p:last-child {
+    color: white;
+    font-size: 25px;
+}
+
+
+.end-line {
+    width: 0;
+    height: 1px;
+
+    background: #1f3384;
+
+    margin: 50px auto 25px;
+
+    transition: width 2s ease;
+}
+
+
+.end-line.show {
+    width: 100px;
+}
+
+
+.end {
+    font-family: "Space Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    color: #444;
+
+    opacity: 0;
+}
+
+
+.end.show {
+    opacity: 1;
+
+    transition: 2s ease;
+}
+
+
+/* MOBİL */
+
+@media (max-width: 600px) {
+
+    h1 {
+        letter-spacing: -2px;
+    }
+
+    .file-box {
+        padding: 20px;
+    }
+
+    .findings p {
+        font-size: 11px;
+    }
+
+}
